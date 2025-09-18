@@ -1,12 +1,12 @@
-# Microsoft SQL Server 2018 Docker Image
+# Microsoft SQL Server 2019 Docker Image
 
-Ce dépôt contient un Dockerfile pour construire une image Docker basée sur `Microsoft SQL Server 2018-latest`. Cette image permet de déployer un serveur SQL Server sur Linux avec persistance des données.
+Ce dépôt contient un Dockerfile pour construire une image Docker basée sur `Microsoft SQL Server 2019-latest`. Cette image permet de déployer un serveur SQL Server sur Linux.
 
 ## Description
 
 L'image est construite à partir de l'image officielle Microsoft SQL Server Linux.
 
-Elle permet de configurer rapidement un serveur SQL Server avec les variables d'environnement nécessaires et la persistance des données via des volumes Docker.
+Elle permet de configurer rapidement un serveur SQL Server avec les variables d'environnement nécessaires.
 
 ## Utilisation
 
