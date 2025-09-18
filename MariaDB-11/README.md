@@ -12,14 +12,12 @@ La persistance des données est assurée via un volume Docker bindé sur le rép
 
 ### Construction de l'image
 
-Voici une commande d'exemple pour contruire une image :
 ```
 docker build --tag [imagebase-version:tag] . 
 ```
 
 ### Lancement d'un conteneur
 
-Voici une commande d'exemple pour lancer un conteneur :
 ```
 docker run --detach --name [nomimage-version:tag] --publish [port]:3306 -v [nomvolume]:/var/lib/mysql [image:tag]
 ```
@@ -29,10 +27,6 @@ docker run --detach --name [nomimage-version:tag] --publish [port]:3306 -v [nomv
 ```
 docker exec -it [conteneur] bash
 ```
-
-### Volumes par défaut
-
-`/var/lib/mysql`
 
 ### Variables d'environnement disponibles
 
@@ -45,7 +39,11 @@ docker exec -it [conteneur] bash
 
 - `3306` : port par défaut MySQL/MariaDB
 
-### Exemple de Dockerfile
+### Volumes par défaut
+
+- `/var/lib/mysql`
+
+## Exemple de Dockerfile
 
 ```
 FROM mariadb:11
