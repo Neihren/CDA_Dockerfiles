@@ -1,24 +1,38 @@
 # MariaDB 11 Docker Image
 
-Ce dépôt contient un Dockerfile pour construire une image Docker basée sur MariaDB version 11, une base de données relationnelle open source populaire.
+Ce dépôt contient un Dockerfile pour construire une image Docker basée sur `MariaDB version 11`, une base de données relationnelle open source populaire.
 
 ## Description
 
-L'image est basée sur l'image officielle MariaDB 11. Elle permet de rapidement déployer un serveur MariaDB configurable via des variables d'environnement. Des scripts d'initialisation peuvent être ajoutés pour personnaliser la base de données au démarrage.
+L'image est basée sur l'image officielle MariaDB 11. Elle permet de rapidement déployer un serveur MariaDB configurable via des variables d'environnement.
+
+La persistance des données est assurée via un volume Docker bindé sur le répertoire des données MariaDB.
 
 ## Utilisation
 
 ### Construction de l'image
+
+Voici une commande d'exemple pour contruire une image :
 ```
-docker build -t mariadb:11-custom . 
+> docker build --tag [imagebase-version:tag] . 
 ```
 
 ### Lancement d'un conteneur
 
-Voici une commande d'exemple pour lancer un conteneur avec un mot de passe root défini :
+Voici une commande d'exemple pour lancer un conteneur :
 ```
-docker run -d --name mariadb11-container -e MARIADB_ROOT_PASSWORD=monmotdepasse -p 3306:3306 mariadb:11-custom
+> docker run --detach --name [nomimage-version:tag] --publish [port]:3306 -v [nomvolume]:/var/lib/mysql [image:tag]
 ```
+
+### Exécution du conteneur
+
+```
+> docker exec -it [conteneur] bash
+```
+
+### Volumes par défaut
+
+`/var/lib/mysql`
 
 ### Variables d'environnement disponibles
 
@@ -27,25 +41,27 @@ docker run -d --name mariadb11-container -e MARIADB_ROOT_PASSWORD=monmotdepasse 
 - `MARIADB_USER` : nom d'un utilisateur à créer (optionnel)
 - `MARIADB_PASSWORD` : mot de passe du nouvel utilisateur (optionnel)
 
-### Initialisation
-
-Pour ajouter des scripts SQL ou shell à exécuter lors du premier démarrage, placez-les dans le dossier `/docker-entrypoint-initdb.d` dans l'image.
-
-## Ports exposés
+### Ports exposés
 
 - `3306` : port par défaut MySQL/MariaDB
 
-## Exemple de Dockerfile
+### Exemple de Dockerfile
 
 ```
 FROM mariadb:11
 
-ENV MARIADB_ROOT_PASSWORD=change_me
-ENV MARIADB_DATABASE=exampledb
-ENV MARIADB_USER=user
-ENV MARIADB_PASSWORD=password
+ENV MYSQL_ROOT_PASSWORD=password
+ENV MYSQL_DATABASE=dbname
+ENV MYSQL_USER=user
+ENV MYSQL_PASSWORD=password
 
-EXPOSE 3306
-
-CMD ["mysqld"]
+VOLUME [ "/data" ]
 ```
+
+## License
+
+Ce projet est libre, merci de respecter les licences des composants utilisés (MariaDB est sous licence GPL).
+
+---
+
+Pour toute question ou suggestion, merci d'ouvrir une issue sur ce dépôt.
