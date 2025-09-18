@@ -36,7 +36,7 @@ docker exec -it [conteneur] bash
 
 ### Ports exposés
 
-- 27017 : port par défaut d’écoute MongoDB
+- `27017` : port par défaut d’écoute MongoDB
 
 ### Volumes par défaut
 
