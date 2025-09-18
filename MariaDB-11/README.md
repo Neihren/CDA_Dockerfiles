@@ -14,20 +14,20 @@ La persistance des données est assurée via un volume Docker bindé sur le rép
 
 Voici une commande d'exemple pour contruire une image :
 ```
-> docker build --tag [imagebase-version:tag] . 
+docker build --tag [imagebase-version:tag] . 
 ```
 
 ### Lancement d'un conteneur
 
 Voici une commande d'exemple pour lancer un conteneur :
 ```
-> docker run --detach --name [nomimage-version:tag] --publish [port]:3306 -v [nomvolume]:/var/lib/mysql [image:tag]
+docker run --detach --name [nomimage-version:tag] --publish [port]:3306 -v [nomvolume]:/var/lib/mysql [image:tag]
 ```
 
 ### Exécution du conteneur
 
 ```
-> docker exec -it [conteneur] bash
+docker exec -it [conteneur] bash
 ```
 
 ### Volumes par défaut
