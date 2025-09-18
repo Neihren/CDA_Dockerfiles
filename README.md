@@ -56,13 +56,13 @@
 
 # Ports de base de données par défaut
 
-| SGBD       | Port recommandé |
-|------------|----------------|
-| MySQL      | 3306           |
-| MariaDB    | 3306           |
-| PostgreSQL | 5432           |
-| Mongo      | 8081           |
-| SQLServer  | 1433           |
+| SGBD                 | Port recommandé |
+|----------------------|-----------------|
+| MySQL                | 3306            |
+| MariaDB              | 3306            |
+| PostgreSQL           | 5432            |
+| MongoDB              | 27017           |
+| Microsoft SQLServer  | 1433            |
 
 
 # Exemples pratiques
