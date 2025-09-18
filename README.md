@@ -61,6 +61,9 @@
 | MySQL      | 3306           |
 | MariaDB    | 3306           |
 | PostgreSQL | 5432           |
+| Mongo      | 8081           |
+| SQLServer  | 1433           |
+
 
 # Exemples pratiques
 
