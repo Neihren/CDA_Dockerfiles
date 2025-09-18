@@ -9,16 +9,16 @@ L'image est basée sur l'image officielle MariaDB 11. Elle permet de rapidement 
 ## Utilisation
 
 ### Construction de l'image
-
-`docker build -t mariadb:11-custom . `
-
+```
+docker build -t mariadb:11-custom . 
+```
 
 ### Lancement d'un conteneur
 
 Voici une commande d'exemple pour lancer un conteneur avec un mot de passe root défini :
-
-`docker run -d --name mariadb11-container -e MARIADB_ROOT_PASSWORD=monmotdepasse -p 3306:3306 mariadb:11-custom`
-
+```
+docker run -d --name mariadb11-container -e MARIADB_ROOT_PASSWORD=monmotdepasse -p 3306:3306 mariadb:11-custom
+```
 
 ### Variables d'environnement disponibles
 
